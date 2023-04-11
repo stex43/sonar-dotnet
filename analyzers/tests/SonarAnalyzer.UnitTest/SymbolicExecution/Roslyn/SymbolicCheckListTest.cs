@@ -37,8 +37,8 @@ namespace SonarAnalyzer.UnitTest.SymbolicExecution.Roslyn
             var a = new Mock<SymbolicCheck>();
             var b = new Mock<SymbolicCheck>();
             var context = new SymbolicContext(null, ProgramState.Empty, Array.Empty<ISymbol>());
-            a.Setup(x => x.PreProcess(context)).Returns(new[] { context.State });
-            a.Setup(x => x.PostProcess(context)).Returns(new[] { context.State });
+            a.Setup(x => x.PreProcess(context)).Returns(new ProgramStates(context.State));
+            a.Setup(x => x.PostProcess(context)).Returns(new ProgramStates(context.State));
             var sut = new SymbolicCheckList(new[] { a.Object, b.Object });
 
             a.Verify(x => x.ExitReached(context), Times.Never);
@@ -69,7 +69,7 @@ namespace SonarAnalyzer.UnitTest.SymbolicExecution.Roslyn
         [TestMethod]
         public void PostProcess_CanReturnMultipleStates()
         {
-            var triple = new PostProcessTestCheck(x => new[] { x.State, x.State, x.State });
+            var triple = new PostProcessTestCheck(x => new ProgramStates(x.State, x.State, x.State));
             var sut = new SymbolicCheckList(new[] { triple, triple });
             sut.PostProcess(new(null, ProgramState.Empty, Array.Empty<ISymbol>())).Should().HaveCount(9);
         }
@@ -77,7 +77,7 @@ namespace SonarAnalyzer.UnitTest.SymbolicExecution.Roslyn
         [TestMethod]
         public void PostProcess_CanReturnNoStates()
         {
-            var empty = new PostProcessTestCheck(x => Array.Empty<ProgramState>());
+            var empty = new PostProcessTestCheck(x => new ProgramStates());
             var sut = new SymbolicCheckList(new[] { empty });
             sut.PostProcess(new(null, ProgramState.Empty, Array.Empty<ISymbol>())).Should().HaveCount(0);
         }
