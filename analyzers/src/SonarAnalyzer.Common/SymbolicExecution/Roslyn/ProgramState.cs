@@ -52,16 +52,6 @@ namespace SonarAnalyzer.SymbolicExecution.Roslyn
             Exceptions = ImmutableStack<ExceptionState>.Empty;
         }
 
-        protected ProgramState(ProgramState original)   // Custom record override constructor to reset "toArray"
-        {
-            OperationValue = original.OperationValue;
-            SymbolValue = original.SymbolValue;
-            VisitCount = original.VisitCount;
-            CaptureOperation = original.CaptureOperation;
-            PreservedSymbols = original.PreservedSymbols;
-            Exceptions = original.Exceptions;
-        }
-
         public ProgramState SetOperationValue(IOperationWrapper operation, SymbolicValue value) =>
             operation is null
                 ? throw new ArgumentNullException(nameof(operation))
