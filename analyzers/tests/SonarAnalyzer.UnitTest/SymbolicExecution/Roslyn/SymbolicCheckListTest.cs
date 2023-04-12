@@ -21,6 +21,8 @@
 using Moq;
 using SonarAnalyzer.SymbolicExecution.Roslyn;
 using SonarAnalyzer.UnitTest.TestFramework.SymbolicExecution;
+using System;
+using ProgramStates = SonarAnalyzer.SymbolicExecution.Roslyn.States<SonarAnalyzer.SymbolicExecution.Roslyn.ProgramState>;
 
 namespace SonarAnalyzer.UnitTest.SymbolicExecution.Roslyn
 {
@@ -71,7 +73,7 @@ namespace SonarAnalyzer.UnitTest.SymbolicExecution.Roslyn
         {
             var triple = new PostProcessTestCheck(x => new ProgramStates(x.State, x.State, x.State));
             var sut = new SymbolicCheckList(new[] { triple, triple });
-            sut.PostProcess(new(null, ProgramState.Empty, Array.Empty<ISymbol>())).Should().HaveCount(9);
+            sut.PostProcess(new(null, ProgramState.Empty, Array.Empty<ISymbol>())).Length.Should().Be(9);
         }
 
         [TestMethod]
@@ -79,7 +81,7 @@ namespace SonarAnalyzer.UnitTest.SymbolicExecution.Roslyn
         {
             var empty = new PostProcessTestCheck(x => new ProgramStates());
             var sut = new SymbolicCheckList(new[] { empty });
-            sut.PostProcess(new(null, ProgramState.Empty, Array.Empty<ISymbol>())).Should().HaveCount(0);
+            sut.PostProcess(new(null, ProgramState.Empty, Array.Empty<ISymbol>())).Length.Should().Be(0);
         }
     }
 }
