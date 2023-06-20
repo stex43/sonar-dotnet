@@ -1,0 +1,64 @@
+// http://viz-js.com/
+// https://edotor.net/?engine=dot#digraph%20%22CoalescingAssignmentMulti%22%20%7B%0D%0Asubgraph%20%22cluster_1%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-0%22%0D%0Asubgraph%20%22cluster_2%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-1%22%0D%0Acfg0_block2%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%232%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-1%3A%20a%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-0%3A%20a%7C%23%23%23%23%23%23%23%23%23%23%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20IsNullOperation%3A%20a%7C1%23%3A%200%23.Operand%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-1%3A%20a%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Asubgraph%20%22cluster_3%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-4%22%0D%0Asubgraph%20%22cluster_4%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-2%22%0D%0Asubgraph%20%22cluster_5%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-3%22%0D%0Acfg0_block4%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%234%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-3%3A%20b%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-2%3A%20b%7C%23%23%23%23%23%23%23%23%23%23%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20IsNullOperation%3A%20b%7C1%23%3A%200%23.Operand%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-3%3A%20b%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block5%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%235%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-4%3A%20b%20%3F%3F%3D%20c%20%3F%3F%3D%20d%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-3%3A%20b%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Asubgraph%20%22cluster_6%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-7%22%0D%0Asubgraph%20%22cluster_7%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-5%22%0D%0Asubgraph%20%22cluster_8%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-6%22%0D%0Acfg0_block7%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%237%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-6%3A%20c%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-5%3A%20c%7C%23%23%23%23%23%23%23%23%23%23%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20IsNullOperation%3A%20c%7C1%23%3A%200%23.Operand%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-6%3A%20c%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block8%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%238%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-7%3A%20c%20%3F%3F%3D%20d%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-6%3A%20c%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block6%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%236%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-5%3A%20c%7C1%23%3A%200%23.Value%3A%20ParameterReferenceOperation%3A%20c%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block9%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%239%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-7%3A%20c%20%3F%3F%3D%20d%7C1%23%3A%200%23.Value%3A%20SimpleAssignmentOperation%3A%20c%20%3F%3F%3D%20d%7C2%23%3A%201%23.Target%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-5%3A%20c%7C2%23%3A%201%23.Value%3A%20ParameterReferenceOperation%3A%20d%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block10%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%2310%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-4%3A%20b%20%3F%3F%3D%20c%20%3F%3F%3D%20d%7C1%23%3A%200%23.Value%3A%20SimpleAssignmentOperation%3A%20b%20%3F%3F%3D%20c%20%3F%3F%3D%20d%7C2%23%3A%201%23.Target%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-2%3A%20b%7C2%23%3A%201%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-7%3A%20c%20%3F%3F%3D%20d%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block3%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%233%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-2%3A%20b%7C1%23%3A%200%23.Value%3A%20ParameterReferenceOperation%3A%20b%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block11%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%2311%7C0%23%3A%20SimpleAssignmentOperation%3A%20a%20%3F%3F%3D%20b%20%3F%3F%3D%20c%20%3F%3F%3D%20d%7C1%23%3A%200%23.Target%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-0%3A%20a%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-4%3A%20b%20%3F%3F%3D%20c%20%3F%3F%3D%20d%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block1%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%231%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-0%3A%20a%7C1%23%3A%200%23.Value%3A%20ParameterReferenceOperation%3A%20a%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block0%20%5Bshape%3Drecord%20label%3D%22%7BENTRY%20%230%7D%22%5D%0D%0Acfg0_block12%20%5Bshape%3Drecord%20label%3D%22%7BEXIT%20%2312%7D%22%5D%0D%0Acfg0_block1%20-%3E%20cfg0_block2%0D%0Acfg0_block3%20-%3E%20cfg0_block4%0D%0Acfg0_block4%20-%3E%20cfg0_block5%20%5Blabel%3D%22Else%22%5D%0D%0Acfg0_block6%20-%3E%20cfg0_block7%0D%0Acfg0_block7%20-%3E%20cfg0_block8%20%5Blabel%3D%22Else%22%5D%0D%0Acfg0_block4%20-%3E%20cfg0_block6%20%5Blabel%3D%22WhenTrue%22%5D%0D%0Acfg0_block7%20-%3E%20cfg0_block9%20%5Blabel%3D%22WhenTrue%22%5D%0D%0Acfg0_block8%20-%3E%20cfg0_block10%0D%0Acfg0_block9%20-%3E%20cfg0_block10%0D%0Acfg0_block2%20-%3E%20cfg0_block3%20%5Blabel%3D%22WhenTrue%22%5D%0D%0Acfg0_block5%20-%3E%20cfg0_block11%0D%0Acfg0_block10%20-%3E%20cfg0_block11%0D%0Acfg0_block0%20-%3E%20cfg0_block1%0D%0Acfg0_block2%20-%3E%20cfg0_block12%20%5Blabel%3D%22Else%22%5D%0D%0Acfg0_block11%20-%3E%20cfg0_block12%0D%0A%7D%0D%0A
+
+/*
+public void CoalescingAssignmentMulti(string a, string b, string c, string d)
+    {
+        a ??= b ??= c ??= d;
+    }
+*/
+
+digraph "CoalescingAssignmentMulti" {
+subgraph "cluster_1" {
+label = "LocalLifetime region, Captures: #Capture-0"
+subgraph "cluster_2" {
+label = "LocalLifetime region, Captures: #Capture-1"
+cfg0_block2 [shape=record label="{BLOCK #2|0#: FlowCaptureOperation: #Capture-1: a|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-0: a|##########|## BranchValue ##|0#: IsNullOperation: a|1#: 0#.Operand: FlowCaptureReferenceOperation: #Capture-1: a|##########}"]
+}
+subgraph "cluster_3" {
+label = "LocalLifetime region, Captures: #Capture-4"
+subgraph "cluster_4" {
+label = "LocalLifetime region, Captures: #Capture-2"
+subgraph "cluster_5" {
+label = "LocalLifetime region, Captures: #Capture-3"
+cfg0_block4 [shape=record label="{BLOCK #4|0#: FlowCaptureOperation: #Capture-3: b|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-2: b|##########|## BranchValue ##|0#: IsNullOperation: b|1#: 0#.Operand: FlowCaptureReferenceOperation: #Capture-3: b|##########}"]
+cfg0_block5 [shape=record label="{BLOCK #5|0#: FlowCaptureOperation: #Capture-4: b ??= c ??= d|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-3: b|##########}"]
+}
+subgraph "cluster_6" {
+label = "LocalLifetime region, Captures: #Capture-7"
+subgraph "cluster_7" {
+label = "LocalLifetime region, Captures: #Capture-5"
+subgraph "cluster_8" {
+label = "LocalLifetime region, Captures: #Capture-6"
+cfg0_block7 [shape=record label="{BLOCK #7|0#: FlowCaptureOperation: #Capture-6: c|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-5: c|##########|## BranchValue ##|0#: IsNullOperation: c|1#: 0#.Operand: FlowCaptureReferenceOperation: #Capture-6: c|##########}"]
+cfg0_block8 [shape=record label="{BLOCK #8|0#: FlowCaptureOperation: #Capture-7: c ??= d|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-6: c|##########}"]
+}
+cfg0_block6 [shape=record label="{BLOCK #6|0#: FlowCaptureOperation: #Capture-5: c|1#: 0#.Value: ParameterReferenceOperation: c|##########}"]
+cfg0_block9 [shape=record label="{BLOCK #9|0#: FlowCaptureOperation: #Capture-7: c ??= d|1#: 0#.Value: SimpleAssignmentOperation: c ??= d|2#: 1#.Target: FlowCaptureReferenceOperation: #Capture-5: c|2#: 1#.Value: ParameterReferenceOperation: d|##########}"]
+}
+cfg0_block10 [shape=record label="{BLOCK #10|0#: FlowCaptureOperation: #Capture-4: b ??= c ??= d|1#: 0#.Value: SimpleAssignmentOperation: b ??= c ??= d|2#: 1#.Target: FlowCaptureReferenceOperation: #Capture-2: b|2#: 1#.Value: FlowCaptureReferenceOperation: #Capture-7: c ??= d|##########}"]
+}
+cfg0_block3 [shape=record label="{BLOCK #3|0#: FlowCaptureOperation: #Capture-2: b|1#: 0#.Value: ParameterReferenceOperation: b|##########}"]
+}
+cfg0_block11 [shape=record label="{BLOCK #11|0#: SimpleAssignmentOperation: a ??= b ??= c ??= d|1#: 0#.Target: FlowCaptureReferenceOperation: #Capture-0: a|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-4: b ??= c ??= d|##########}"]
+}
+cfg0_block1 [shape=record label="{BLOCK #1|0#: FlowCaptureOperation: #Capture-0: a|1#: 0#.Value: ParameterReferenceOperation: a|##########}"]
+}
+cfg0_block0 [shape=record label="{ENTRY #0}"]
+cfg0_block12 [shape=record label="{EXIT #12}"]
+cfg0_block1 -> cfg0_block2
+cfg0_block3 -> cfg0_block4
+cfg0_block4 -> cfg0_block5 [label="Else"]
+cfg0_block6 -> cfg0_block7
+cfg0_block7 -> cfg0_block8 [label="Else"]
+cfg0_block4 -> cfg0_block6 [label="WhenTrue"]
+cfg0_block7 -> cfg0_block9 [label="WhenTrue"]
+cfg0_block8 -> cfg0_block10
+cfg0_block9 -> cfg0_block10
+cfg0_block2 -> cfg0_block3 [label="WhenTrue"]
+cfg0_block5 -> cfg0_block11
+cfg0_block10 -> cfg0_block11
+cfg0_block0 -> cfg0_block1
+cfg0_block2 -> cfg0_block12 [label="Else"]
+cfg0_block11 -> cfg0_block12
+}

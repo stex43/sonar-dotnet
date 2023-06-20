@@ -1,0 +1,36 @@
+// http://viz-js.com/
+// https://edotor.net/?engine=dot#digraph%20%22While%22%20%7B%0D%0Asubgraph%20%22cluster_1%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Locals%3A%20j%22%0D%0Acfg0_block2%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%232%7C0%23%3A%20ExpressionStatementOperation%3A%20i--%3B%7C1%23%3A%200%23.Operation%3A%20IncrementOrDecrementOperation%3A%20i--%7C2%23%3A%201%23.Target%3A%20ParameterReferenceOperation%3A%20i%7C%23%23%23%23%23%23%23%23%23%23%7C0%23%3A%20SimpleAssignmentOperation%3A%20j%20%3D%20i%7C1%23%3A%200%23.Target%3A%20LocalReferenceOperation%3A%20j%20%3D%20i%7C1%23%3A%200%23.Value%3A%20ParameterReferenceOperation%3A%20i%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block3%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%233%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20BinaryOperation%3A%20j%20%5C%3E%200%7C1%23%3A%200%23.LeftOperand%3A%20LocalReferenceOperation%3A%20j%7C1%23%3A%200%23.RightOperand%3A%20LiteralOperation%3A%200%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block4%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%234%7C0%23%3A%20ExpressionStatementOperation%3A%20j--%3B%7C1%23%3A%200%23.Operation%3A%20IncrementOrDecrementOperation%3A%20j--%7C2%23%3A%201%23.Target%3A%20LocalReferenceOperation%3A%20j%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block0%20%5Bshape%3Drecord%20label%3D%22%7BENTRY%20%230%7D%22%5D%0D%0Acfg0_block1%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%231%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20BinaryOperation%3A%20i%20%5C%3E%200%7C1%23%3A%200%23.LeftOperand%3A%20ParameterReferenceOperation%3A%20i%7C1%23%3A%200%23.RightOperand%3A%20LiteralOperation%3A%200%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block5%20%5Bshape%3Drecord%20label%3D%22%7BEXIT%20%235%7D%22%5D%0D%0Acfg0_block1%20-%3E%20cfg0_block2%20%5Blabel%3D%22Else%22%5D%0D%0Acfg0_block2%20-%3E%20cfg0_block3%0D%0Acfg0_block4%20-%3E%20cfg0_block3%0D%0Acfg0_block3%20-%3E%20cfg0_block4%20%5Blabel%3D%22Else%22%5D%0D%0Acfg0_block0%20-%3E%20cfg0_block1%0D%0Acfg0_block3%20-%3E%20cfg0_block1%20%5Blabel%3D%22WhenFalse%22%5D%0D%0Acfg0_block1%20-%3E%20cfg0_block5%20%5Blabel%3D%22WhenFalse%22%5D%0D%0A%7D%0D%0A
+
+/*
+public void While(int i)
+    {
+        while (i > 0)
+        {
+            i--;
+            var j = i;
+            while (j > 0)
+            {
+                j--;
+            }
+        }
+    }
+*/
+
+digraph "While" {
+subgraph "cluster_1" {
+label = "LocalLifetime region, Locals: j"
+cfg0_block2 [shape=record label="{BLOCK #2|0#: ExpressionStatementOperation: i--;|1#: 0#.Operation: IncrementOrDecrementOperation: i--|2#: 1#.Target: ParameterReferenceOperation: i|##########|0#: SimpleAssignmentOperation: j = i|1#: 0#.Target: LocalReferenceOperation: j = i|1#: 0#.Value: ParameterReferenceOperation: i|##########}"]
+cfg0_block3 [shape=record label="{BLOCK #3|## BranchValue ##|0#: BinaryOperation: j \> 0|1#: 0#.LeftOperand: LocalReferenceOperation: j|1#: 0#.RightOperand: LiteralOperation: 0|##########}"]
+cfg0_block4 [shape=record label="{BLOCK #4|0#: ExpressionStatementOperation: j--;|1#: 0#.Operation: IncrementOrDecrementOperation: j--|2#: 1#.Target: LocalReferenceOperation: j|##########}"]
+}
+cfg0_block0 [shape=record label="{ENTRY #0}"]
+cfg0_block1 [shape=record label="{BLOCK #1|## BranchValue ##|0#: BinaryOperation: i \> 0|1#: 0#.LeftOperand: ParameterReferenceOperation: i|1#: 0#.RightOperand: LiteralOperation: 0|##########}"]
+cfg0_block5 [shape=record label="{EXIT #5}"]
+cfg0_block1 -> cfg0_block2 [label="Else"]
+cfg0_block2 -> cfg0_block3
+cfg0_block4 -> cfg0_block3
+cfg0_block3 -> cfg0_block4 [label="Else"]
+cfg0_block0 -> cfg0_block1
+cfg0_block3 -> cfg0_block1 [label="WhenFalse"]
+cfg0_block1 -> cfg0_block5 [label="WhenFalse"]
+}

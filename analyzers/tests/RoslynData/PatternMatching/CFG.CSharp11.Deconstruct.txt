@@ -1,0 +1,18 @@
+// http://viz-js.com/
+// https://edotor.net/?engine=dot#digraph%20%22Deconstruct%22%20%7B%0D%0Acfg0_block0%20%5Bshape%3Drecord%20label%3D%22%7BENTRY%20%230%7D%22%5D%0D%0Acfg0_block1%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%231%7C0%23%3A%20ExpressionStatementOperation%3A%20a%20%3D%20A%3B%7C1%23%3A%200%23.Operation%3A%20SimpleAssignmentOperation%3A%20a%20%3D%20A%7C2%23%3A%201%23.Target%3A%20ParameterReferenceOperation%3A%20a%7C2%23%3A%201%23.Value%3A%20FieldReferenceOperation%3A%20A%7C3%23%3A%202%23.Instance%3A%20InstanceReferenceOperation%3A%20A%7C%23%23%23%23%23%23%23%23%23%23%7C0%23%3A%20ExpressionStatementOperation%3A%20b%20%3D%20B%3B%7C1%23%3A%200%23.Operation%3A%20SimpleAssignmentOperation%3A%20b%20%3D%20B%7C2%23%3A%201%23.Target%3A%20ParameterReferenceOperation%3A%20b%7C2%23%3A%201%23.Value%3A%20FieldReferenceOperation%3A%20B%7C3%23%3A%202%23.Instance%3A%20InstanceReferenceOperation%3A%20B%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block2%20%5Bshape%3Drecord%20label%3D%22%7BEXIT%20%232%7D%22%5D%0D%0Acfg0_block0%20-%3E%20cfg0_block1%0D%0Acfg0_block1%20-%3E%20cfg0_block2%0D%0A%7D%0D%0A
+
+/*
+public void Deconstruct(out int a, out int b)
+    {
+        a = A;
+        b = B;
+    }
+*/
+
+digraph "Deconstruct" {
+cfg0_block0 [shape=record label="{ENTRY #0}"]
+cfg0_block1 [shape=record label="{BLOCK #1|0#: ExpressionStatementOperation: a = A;|1#: 0#.Operation: SimpleAssignmentOperation: a = A|2#: 1#.Target: ParameterReferenceOperation: a|2#: 1#.Value: FieldReferenceOperation: A|3#: 2#.Instance: InstanceReferenceOperation: A|##########|0#: ExpressionStatementOperation: b = B;|1#: 0#.Operation: SimpleAssignmentOperation: b = B|2#: 1#.Target: ParameterReferenceOperation: b|2#: 1#.Value: FieldReferenceOperation: B|3#: 2#.Instance: InstanceReferenceOperation: B|##########}"]
+cfg0_block2 [shape=record label="{EXIT #2}"]
+cfg0_block0 -> cfg0_block1
+cfg0_block1 -> cfg0_block2
+}

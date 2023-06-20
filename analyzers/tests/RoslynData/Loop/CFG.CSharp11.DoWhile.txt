@@ -1,0 +1,27 @@
+// http://viz-js.com/
+// https://edotor.net/?engine=dot#digraph%20%22DoWhile%22%20%7B%0D%0Asubgraph%20%22cluster_1%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Locals%3A%20value%22%0D%0Acfg0_block1%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%231%7C0%23%3A%20SimpleAssignmentOperation%3A%20value%20%3D%20null%7C1%23%3A%200%23.Target%3A%20LocalReferenceOperation%3A%20value%20%3D%20null%7C1%23%3A%200%23.Value%3A%20ConversionOperation%3A%20null%7C2%23%3A%201%23.Operand%3A%20LiteralOperation%3A%20null%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block2%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%232%7C0%23%3A%20ExpressionStatementOperation%3A%20value%20%3D%20%5C%22Value%5C%22%3B%7C1%23%3A%200%23.Operation%3A%20SimpleAssignmentOperation%3A%20value%20%3D%20%5C%22Value%5C%22%7C2%23%3A%201%23.Target%3A%20LocalReferenceOperation%3A%20value%7C2%23%3A%201%23.Value%3A%20LiteralOperation%3A%20%5C%22Value%5C%22%7C%23%23%23%23%23%23%23%23%23%23%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20BinaryOperation%3A%20value%20%3D%3D%20null%7C1%23%3A%200%23.LeftOperand%3A%20LocalReferenceOperation%3A%20value%7C1%23%3A%200%23.RightOperand%3A%20ConversionOperation%3A%20null%7C2%23%3A%201%23.Operand%3A%20LiteralOperation%3A%20null%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block0%20%5Bshape%3Drecord%20label%3D%22%7BENTRY%20%230%7D%22%5D%0D%0Acfg0_block3%20%5Bshape%3Drecord%20label%3D%22%7BEXIT%20%233%7D%22%5D%0D%0Acfg0_block0%20-%3E%20cfg0_block1%0D%0Acfg0_block1%20-%3E%20cfg0_block2%0D%0Acfg0_block2%20-%3E%20cfg0_block2%20%5Blabel%3D%22WhenTrue%22%5D%0D%0Acfg0_block2%20-%3E%20cfg0_block3%20%5Blabel%3D%22Else%22%5D%0D%0A%7D%0D%0A
+
+/*
+public void DoWhile()
+    {
+        string value = null;
+        do
+        {
+            value = "Value";
+        } while (value == null);
+    }
+*/
+
+digraph "DoWhile" {
+subgraph "cluster_1" {
+label = "LocalLifetime region, Locals: value"
+cfg0_block1 [shape=record label="{BLOCK #1|0#: SimpleAssignmentOperation: value = null|1#: 0#.Target: LocalReferenceOperation: value = null|1#: 0#.Value: ConversionOperation: null|2#: 1#.Operand: LiteralOperation: null|##########}"]
+cfg0_block2 [shape=record label="{BLOCK #2|0#: ExpressionStatementOperation: value = \"Value\";|1#: 0#.Operation: SimpleAssignmentOperation: value = \"Value\"|2#: 1#.Target: LocalReferenceOperation: value|2#: 1#.Value: LiteralOperation: \"Value\"|##########|## BranchValue ##|0#: BinaryOperation: value == null|1#: 0#.LeftOperand: LocalReferenceOperation: value|1#: 0#.RightOperand: ConversionOperation: null|2#: 1#.Operand: LiteralOperation: null|##########}"]
+}
+cfg0_block0 [shape=record label="{ENTRY #0}"]
+cfg0_block3 [shape=record label="{EXIT #3}"]
+cfg0_block0 -> cfg0_block1
+cfg0_block1 -> cfg0_block2
+cfg0_block2 -> cfg0_block2 [label="WhenTrue"]
+cfg0_block2 -> cfg0_block3 [label="Else"]
+}

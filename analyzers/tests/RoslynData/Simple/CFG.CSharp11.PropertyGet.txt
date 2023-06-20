@@ -1,0 +1,20 @@
+// http://viz-js.com/
+// https://edotor.net/?engine=dot#digraph%20%22PropertyGet%22%20%7B%0D%0Asubgraph%20%22cluster_1%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Locals%3A%20a%22%0D%0Acfg0_block1%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%231%7C0%23%3A%20SimpleAssignmentOperation%3A%20a%20%3D%20b.Property%7C1%23%3A%200%23.Target%3A%20LocalReferenceOperation%3A%20a%20%3D%20b.Property%7C1%23%3A%200%23.Value%3A%20PropertyReferenceOperation%3A%20b.Property%7C2%23%3A%201%23.Instance%3A%20ParameterReferenceOperation%3A%20b%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block0%20%5Bshape%3Drecord%20label%3D%22%7BENTRY%20%230%7D%22%5D%0D%0Acfg0_block2%20%5Bshape%3Drecord%20label%3D%22%7BEXIT%20%232%7D%22%5D%0D%0Acfg0_block0%20-%3E%20cfg0_block1%0D%0Acfg0_block1%20-%3E%20cfg0_block2%0D%0A%7D%0D%0A
+
+/*
+public void PropertyGet(EmptyBase b)
+    {
+        var a = b.Property;
+    }
+*/
+
+digraph "PropertyGet" {
+subgraph "cluster_1" {
+label = "LocalLifetime region, Locals: a"
+cfg0_block1 [shape=record label="{BLOCK #1|0#: SimpleAssignmentOperation: a = b.Property|1#: 0#.Target: LocalReferenceOperation: a = b.Property|1#: 0#.Value: PropertyReferenceOperation: b.Property|2#: 1#.Instance: ParameterReferenceOperation: b|##########}"]
+}
+cfg0_block0 [shape=record label="{ENTRY #0}"]
+cfg0_block2 [shape=record label="{EXIT #2}"]
+cfg0_block0 -> cfg0_block1
+cfg0_block1 -> cfg0_block2
+}

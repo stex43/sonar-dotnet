@@ -1,0 +1,45 @@
+// http://viz-js.com/
+// https://edotor.net/?engine=dot#digraph%20%22TryCatch_ThrowInCatch_SingleCatchBlock%22%20%7B%0D%0Asubgraph%20%22cluster_1%22%20%7B%0Alabel%20%3D%20%22TryAndCatch%20region%22%0D%0Asubgraph%20%22cluster_2%22%20%7B%0Alabel%20%3D%20%22Try%20region%22%0D%0Acfg0_block2%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%232%7C0%23%3A%20ExpressionStatementOperation%3A%20Tag(%5C%22InTry%5C%22)%3B%7C1%23%3A%200%23.Operation%3A%20InvocationOperation%3A%20Tag%3A%20Tag(%5C%22InTry%5C%22)%7C2%23%3A%201%23.Instance%3A%20InstanceReferenceOperation%3A%20Tag%7C2%23%3A%20ArgumentOperation%3A%20%5C%22InTry%5C%22%7C3%23%3A%202%23.Value%3A%20LiteralOperation%3A%20%5C%22InTry%5C%22%7C2%23%3A%20ArgumentOperation%3A%20Tag(%5C%22InTry%5C%22)%7C3%23%3A%202%23.Value%3A%20DefaultValueOperation%3A%20Tag(%5C%22InTry%5C%22)%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Asubgraph%20%22cluster_3%22%20%7B%0Alabel%20%3D%20%22Catch%20region%3A%20object%22%0D%0Acfg0_block3%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%233%7C0%23%3A%20ExpressionStatementOperation%3A%20Tag(%5C%22InCatch%5C%22)%3B%7C1%23%3A%200%23.Operation%3A%20InvocationOperation%3A%20Tag%3A%20Tag(%5C%22InCatch%5C%22)%7C2%23%3A%201%23.Instance%3A%20InstanceReferenceOperation%3A%20Tag%7C2%23%3A%20ArgumentOperation%3A%20%5C%22InCatch%5C%22%7C3%23%3A%202%23.Value%3A%20LiteralOperation%3A%20%5C%22InCatch%5C%22%7C2%23%3A%20ArgumentOperation%3A%20Tag(%5C%22InCatch%5C%22)%7C3%23%3A%202%23.Value%3A%20DefaultValueOperation%3A%20Tag(%5C%22InCatch%5C%22)%7C%23%23%23%23%23%23%23%23%23%23%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20ObjectCreationOperation%3A%20new%20System.Exception()%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block4%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%234%7C0%23%3A%20ExpressionStatementOperation%3A%20Tag(%5C%22UnreachableInCatch%5C%22)%3B%7C1%23%3A%200%23.Operation%3A%20InvocationOperation%3A%20Tag%3A%20Tag(%5C%22UnreachableInCatch%5C%22)%7C2%23%3A%201%23.Instance%3A%20InstanceReferenceOperation%3A%20Tag%7C2%23%3A%20ArgumentOperation%3A%20%5C%22UnreachableInCatch%5C%22%7C3%23%3A%202%23.Value%3A%20LiteralOperation%3A%20%5C%22UnreachableInCatch%5C%22%7C2%23%3A%20ArgumentOperation%3A%20Tag(%5C%22UnreachableInCatch%5C%22)%7C3%23%3A%202%23.Value%3A%20DefaultValueOperation%3A%20Tag(%5C%22UnreachableInCatch%5C%22)%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0A%7D%0D%0Acfg0_block0%20%5Bshape%3Drecord%20label%3D%22%7BENTRY%20%230%7D%22%5D%0D%0Acfg0_block1%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%231%7C0%23%3A%20ExpressionStatementOperation%3A%20Tag(%5C%22BeforeTry%5C%22)%3B%7C1%23%3A%200%23.Operation%3A%20InvocationOperation%3A%20Tag%3A%20Tag(%5C%22BeforeTry%5C%22)%7C2%23%3A%201%23.Instance%3A%20InstanceReferenceOperation%3A%20Tag%7C2%23%3A%20ArgumentOperation%3A%20%5C%22BeforeTry%5C%22%7C3%23%3A%202%23.Value%3A%20LiteralOperation%3A%20%5C%22BeforeTry%5C%22%7C2%23%3A%20ArgumentOperation%3A%20Tag(%5C%22BeforeTry%5C%22)%7C3%23%3A%202%23.Value%3A%20DefaultValueOperation%3A%20Tag(%5C%22BeforeTry%5C%22)%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block5%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%235%7C0%23%3A%20ExpressionStatementOperation%3A%20Tag(%5C%22UnreachableAfterCatch%5C%22)%3B%7C1%23%3A%200%23.Operation%3A%20InvocationOperation%3A%20Tag%3A%20Tag(%5C%22UnreachableAfterCatch%5C%22)%7C2%23%3A%201%23.Instance%3A%20InstanceReferenceOperation%3A%20Tag%7C2%23%3A%20ArgumentOperation%3A%20%5C%22UnreachableAfterCatch%5C%22%7C3%23%3A%202%23.Value%3A%20LiteralOperation%3A%20%5C%22UnreachableAfterCatch%5C%22%7C2%23%3A%20ArgumentOperation%3A%20Tag(%5C%22UnreachableAfterCatch%5C%22)%7C3%23%3A%202%23.Value%3A%20DefaultValueOperation%3A%20Tag(%5C%22UnreachableAfterCatch%5C%22)%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block6%20%5Bshape%3Drecord%20label%3D%22%7BEXIT%20%236%7D%22%5D%0D%0Acfg0_block1%20-%3E%20cfg0_block2%0D%0Acfg0_block3%20-%3E%20NoDestination_cfg0_block3%20%5Blabel%3D%22Throw%22%5D%0D%0Acfg0_block0%20-%3E%20cfg0_block1%0D%0Acfg0_block2%20-%3E%20cfg0_block5%0D%0Acfg0_block4%20-%3E%20cfg0_block5%0D%0Acfg0_block5%20-%3E%20cfg0_block6%0D%0A%7D%0D%0A
+
+/*
+public void TryCatch_ThrowInCatch_SingleCatchBlock()
+    {
+        Tag("BeforeTry");
+        try
+        {
+            Tag("InTry");
+        }
+        catch
+        {
+            Tag("InCatch");
+            throw new System.Exception();
+            Tag("UnreachableInCatch");
+        }
+        Tag("UnreachableAfterCatch");
+    }
+*/
+
+digraph "TryCatch_ThrowInCatch_SingleCatchBlock" {
+subgraph "cluster_1" {
+label = "TryAndCatch region"
+subgraph "cluster_2" {
+label = "Try region"
+cfg0_block2 [shape=record label="{BLOCK #2|0#: ExpressionStatementOperation: Tag(\"InTry\");|1#: 0#.Operation: InvocationOperation: Tag: Tag(\"InTry\")|2#: 1#.Instance: InstanceReferenceOperation: Tag|2#: ArgumentOperation: \"InTry\"|3#: 2#.Value: LiteralOperation: \"InTry\"|2#: ArgumentOperation: Tag(\"InTry\")|3#: 2#.Value: DefaultValueOperation: Tag(\"InTry\")|##########}"]
+}
+subgraph "cluster_3" {
+label = "Catch region: object"
+cfg0_block3 [shape=record label="{BLOCK #3|0#: ExpressionStatementOperation: Tag(\"InCatch\");|1#: 0#.Operation: InvocationOperation: Tag: Tag(\"InCatch\")|2#: 1#.Instance: InstanceReferenceOperation: Tag|2#: ArgumentOperation: \"InCatch\"|3#: 2#.Value: LiteralOperation: \"InCatch\"|2#: ArgumentOperation: Tag(\"InCatch\")|3#: 2#.Value: DefaultValueOperation: Tag(\"InCatch\")|##########|## BranchValue ##|0#: ObjectCreationOperation: new System.Exception()|##########}"]
+cfg0_block4 [shape=record label="{BLOCK #4|0#: ExpressionStatementOperation: Tag(\"UnreachableInCatch\");|1#: 0#.Operation: InvocationOperation: Tag: Tag(\"UnreachableInCatch\")|2#: 1#.Instance: InstanceReferenceOperation: Tag|2#: ArgumentOperation: \"UnreachableInCatch\"|3#: 2#.Value: LiteralOperation: \"UnreachableInCatch\"|2#: ArgumentOperation: Tag(\"UnreachableInCatch\")|3#: 2#.Value: DefaultValueOperation: Tag(\"UnreachableInCatch\")|##########}"]
+}
+}
+cfg0_block0 [shape=record label="{ENTRY #0}"]
+cfg0_block1 [shape=record label="{BLOCK #1|0#: ExpressionStatementOperation: Tag(\"BeforeTry\");|1#: 0#.Operation: InvocationOperation: Tag: Tag(\"BeforeTry\")|2#: 1#.Instance: InstanceReferenceOperation: Tag|2#: ArgumentOperation: \"BeforeTry\"|3#: 2#.Value: LiteralOperation: \"BeforeTry\"|2#: ArgumentOperation: Tag(\"BeforeTry\")|3#: 2#.Value: DefaultValueOperation: Tag(\"BeforeTry\")|##########}"]
+cfg0_block5 [shape=record label="{BLOCK #5|0#: ExpressionStatementOperation: Tag(\"UnreachableAfterCatch\");|1#: 0#.Operation: InvocationOperation: Tag: Tag(\"UnreachableAfterCatch\")|2#: 1#.Instance: InstanceReferenceOperation: Tag|2#: ArgumentOperation: \"UnreachableAfterCatch\"|3#: 2#.Value: LiteralOperation: \"UnreachableAfterCatch\"|2#: ArgumentOperation: Tag(\"UnreachableAfterCatch\")|3#: 2#.Value: DefaultValueOperation: Tag(\"UnreachableAfterCatch\")|##########}"]
+cfg0_block6 [shape=record label="{EXIT #6}"]
+cfg0_block1 -> cfg0_block2
+cfg0_block3 -> NoDestination_cfg0_block3 [label="Throw"]
+cfg0_block0 -> cfg0_block1
+cfg0_block2 -> cfg0_block5
+cfg0_block4 -> cfg0_block5
+cfg0_block5 -> cfg0_block6
+}

@@ -1,0 +1,35 @@
+// http://viz-js.com/
+// https://edotor.net/?engine=dot#digraph%20%22TermaryCoalesce%22%20%7B%0D%0Asubgraph%20%22cluster_1%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Locals%3A%20x%2C%20Captures%3A%20%23Capture-0%22%0D%0Asubgraph%20%22cluster_2%22%20%7B%0Alabel%20%3D%20%22LocalLifetime%20region%2C%20Captures%3A%20%23Capture-1%22%0D%0Acfg0_block2%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%232%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-1%3A%20first%7C1%23%3A%200%23.Value%3A%20ParameterReferenceOperation%3A%20first%7C%23%23%23%23%23%23%23%23%23%23%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20IsNullOperation%3A%20first%7C1%23%3A%200%23.Operand%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-1%3A%20first%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block3%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%233%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-0%3A%20first%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-1%3A%20first%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block1%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%231%7C%23%23%20BranchValue%20%23%23%7C0%23%3A%20ParameterReferenceOperation%3A%20condition%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block4%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%234%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-0%3A%20second%7C1%23%3A%200%23.Value%3A%20ParameterReferenceOperation%3A%20second%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block5%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%235%7C0%23%3A%20FlowCaptureOperation%3A%20%23Capture-0%3A%20ternaryFalse%7C1%23%3A%200%23.Value%3A%20ParameterReferenceOperation%3A%20ternaryFalse%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0Acfg0_block6%20%5Bshape%3Drecord%20label%3D%22%7BBLOCK%20%236%7C0%23%3A%20SimpleAssignmentOperation%3A%20x%20%3D%20condition%20%3F%20(first%20%3F%3F%20second)%20%3A%20ternaryFalse%7C1%23%3A%200%23.Target%3A%20LocalReferenceOperation%3A%20x%20%3D%20condition%20%3F%20(first%20%3F%3F%20second)%20%3A%20ternaryFalse%7C1%23%3A%200%23.Value%3A%20FlowCaptureReferenceOperation%3A%20%23Capture-0%3A%20condition%20%3F%20(first%20%3F%3F%20second)%20%3A%20ternaryFalse%7C%23%23%23%23%23%23%23%23%23%23%7D%22%5D%0D%0A%7D%0D%0Acfg0_block0%20%5Bshape%3Drecord%20label%3D%22%7BENTRY%20%230%7D%22%5D%0D%0Acfg0_block7%20%5Bshape%3Drecord%20label%3D%22%7BEXIT%20%237%7D%22%5D%0D%0Acfg0_block1%20-%3E%20cfg0_block2%20%5Blabel%3D%22Else%22%5D%0D%0Acfg0_block2%20-%3E%20cfg0_block3%20%5Blabel%3D%22Else%22%5D%0D%0Acfg0_block0%20-%3E%20cfg0_block1%0D%0Acfg0_block2%20-%3E%20cfg0_block4%20%5Blabel%3D%22WhenTrue%22%5D%0D%0Acfg0_block1%20-%3E%20cfg0_block5%20%5Blabel%3D%22WhenFalse%22%5D%0D%0Acfg0_block3%20-%3E%20cfg0_block6%0D%0Acfg0_block4%20-%3E%20cfg0_block6%0D%0Acfg0_block5%20-%3E%20cfg0_block6%0D%0Acfg0_block6%20-%3E%20cfg0_block7%0D%0A%7D%0D%0A
+
+/*
+public void TermaryCoalesce(bool condition, string first, string second, string ternaryFalse, string last)
+    {
+        var x = condition ? (first ?? second) : ternaryFalse;
+    }
+*/
+
+digraph "TermaryCoalesce" {
+subgraph "cluster_1" {
+label = "LocalLifetime region, Locals: x, Captures: #Capture-0"
+subgraph "cluster_2" {
+label = "LocalLifetime region, Captures: #Capture-1"
+cfg0_block2 [shape=record label="{BLOCK #2|0#: FlowCaptureOperation: #Capture-1: first|1#: 0#.Value: ParameterReferenceOperation: first|##########|## BranchValue ##|0#: IsNullOperation: first|1#: 0#.Operand: FlowCaptureReferenceOperation: #Capture-1: first|##########}"]
+cfg0_block3 [shape=record label="{BLOCK #3|0#: FlowCaptureOperation: #Capture-0: first|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-1: first|##########}"]
+}
+cfg0_block1 [shape=record label="{BLOCK #1|## BranchValue ##|0#: ParameterReferenceOperation: condition|##########}"]
+cfg0_block4 [shape=record label="{BLOCK #4|0#: FlowCaptureOperation: #Capture-0: second|1#: 0#.Value: ParameterReferenceOperation: second|##########}"]
+cfg0_block5 [shape=record label="{BLOCK #5|0#: FlowCaptureOperation: #Capture-0: ternaryFalse|1#: 0#.Value: ParameterReferenceOperation: ternaryFalse|##########}"]
+cfg0_block6 [shape=record label="{BLOCK #6|0#: SimpleAssignmentOperation: x = condition ? (first ?? second) : ternaryFalse|1#: 0#.Target: LocalReferenceOperation: x = condition ? (first ?? second) : ternaryFalse|1#: 0#.Value: FlowCaptureReferenceOperation: #Capture-0: condition ? (first ?? second) : ternaryFalse|##########}"]
+}
+cfg0_block0 [shape=record label="{ENTRY #0}"]
+cfg0_block7 [shape=record label="{EXIT #7}"]
+cfg0_block1 -> cfg0_block2 [label="Else"]
+cfg0_block2 -> cfg0_block3 [label="Else"]
+cfg0_block0 -> cfg0_block1
+cfg0_block2 -> cfg0_block4 [label="WhenTrue"]
+cfg0_block1 -> cfg0_block5 [label="WhenFalse"]
+cfg0_block3 -> cfg0_block6
+cfg0_block4 -> cfg0_block6
+cfg0_block5 -> cfg0_block6
+cfg0_block6 -> cfg0_block7
+}
