@@ -1,7 +1,4 @@
-﻿extern alias csharp;
-
-using System.Linq;
-/*
+﻿/*
 * SonarAnalyzer for .NET
 * Copyright (C) 2015-2020 SonarSource SA
 * mailto: contact AT sonarsource DOT com
@@ -21,8 +18,6 @@ using System.Linq;
 * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SonarAnalyzer.UnitTest.TestFramework;
 using CS=SonarAnalyzer.Rules.CSharp;
 using VB=SonarAnalyzer.Rules.VisualBasic;
 
@@ -44,6 +39,15 @@ namespace SonarAnalyzer.UnitTest.Rules
         [DataRow("TryCatch.cs")]
         public void RoslynCfgComparer_RenderCfgs_CS(string filename) =>
             builder.AddAnalyzer(() => new CS.RoslynCfgComparer()).AddPaths(filename).WithOptions(ParseOptionsHelper.CSharpLatest).Verify();
+
+#if NET
+
+        [TestMethod]
+        [DataRow("Simple.Net.cs")]
+        public void RoslynCfgComparer_RenderCfgs_CS_Net(string filename) =>
+            builder.AddAnalyzer(() => new CS.RoslynCfgComparer()).AddPaths(filename).WithOptions(ParseOptionsHelper.CSharpLatest).Verify();
+
+#endif
 
         [TestMethod]
         [DataRow("Branching.vb")]

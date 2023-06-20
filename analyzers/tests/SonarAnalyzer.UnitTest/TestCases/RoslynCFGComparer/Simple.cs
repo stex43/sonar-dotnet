@@ -41,16 +41,6 @@ public class Sample
         var unreachable = "bbb";
     }
 
-    public void Index(string[] arr)
-    {
-        var value = arr[^1];
-    }
-
-    public void Range(string[] arr)
-    {
-        var value = arr[1..4];
-    }
-
     public void DictionaryInitializer()
     {
         var dict = new Dictionary<string, int>() { { "a", 1 }, { "b", 2 } };

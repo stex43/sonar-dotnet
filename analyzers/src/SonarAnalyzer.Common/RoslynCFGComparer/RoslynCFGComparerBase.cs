@@ -18,11 +18,7 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-using System.Collections.Immutable;
 using System.IO;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Diagnostics;
-using SonarAnalyzer.Helpers;
 
 namespace SonarAnalyzer.Rules
 {
@@ -31,20 +27,20 @@ namespace SonarAnalyzer.Rules
         protected const string DiagnosticId = "S-COMPARE";
         private const string MessageFormat = "CFG Comparer";
 
-        private static readonly DiagnosticDescriptor rule = new DiagnosticDescriptor(DiagnosticId, DiagnosticId, MessageFormat, "Debug", DiagnosticSeverity.Warning, true, null, null, DiagnosticDescriptorBuilder.MainSourceScopeTag);
+        private static readonly DiagnosticDescriptor rule = new DiagnosticDescriptor(DiagnosticId, DiagnosticId, MessageFormat, "Debug", DiagnosticSeverity.Warning, true, null, null, DiagnosticDescriptorFactory.MainSourceScopeTag);
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = ImmutableArray.Create(rule);
 
         internal abstract string LanguageVersion(Compilation c);
         internal abstract string MethodName(SyntaxNodeAnalysisContext c);
 
-        protected void ProcessBaseMethod(SyntaxNodeAnalysisContext c)
+        protected void ProcessBaseMethod(SonarSyntaxNodeReportingContext c)
         {
             var sourceFileName = Path.GetFileNameWithoutExtension(c.Node.GetLocation().GetLineSpan().Path);
             var languageVersion = LanguageVersion(c.Compilation);
             var root = Path.GetFullPath(Path.GetDirectoryName(GetType().Assembly.Location) + @$"\..\..\..\..\RoslynData\{sourceFileName}\");
-            var methodName = MethodName(c);
+            var methodName = MethodName(c.Context);
             Directory.CreateDirectory(root);
-            var serialized = CFG.CfgSerializer.Serialize(SonarAnalyzer.CFG.Roslyn.ControlFlowGraph.Create(c.Node, c.SemanticModel), methodName);
+            var serialized = CFG.CfgSerializer.Serialize(SonarAnalyzer.CFG.Roslyn.ControlFlowGraph.Create(c.Node, c.SemanticModel, default), methodName);
             File.WriteAllText(root + $"CFG.{languageVersion}.{methodName}.txt",
                 $@"// http://viz-js.com/
 // https://edotor.net/?engine=dot#{System.Net.WebUtility.UrlEncode(serialized).Replace("+", "%20")}

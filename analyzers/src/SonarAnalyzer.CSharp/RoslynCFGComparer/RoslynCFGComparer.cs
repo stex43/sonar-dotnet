@@ -18,30 +18,18 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Diagnostics;
-using SonarAnalyzer.Extensions;
-using SonarAnalyzer.Helpers;
+namespace SonarAnalyzer.Rules.CSharp;
 
-namespace SonarAnalyzer.Rules.CSharp
+[DiagnosticAnalyzer(LanguageNames.CSharp)]
+public sealed class RoslynCfgComparer : RoslynCfgComparerBase
 {
-    [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public sealed class RoslynCfgComparer : RoslynCfgComparerBase
-    {
-        protected override void Initialize(SonarAnalysisContext context)
-        {
-            // Output is rendered to Solution/Tests/RoslynData project
-            context.RegisterSyntaxNodeActionInNonGenerated(
-                ProcessBaseMethod,
-                SyntaxKind.MethodDeclaration, SyntaxKind.ConstructorDeclaration);
-        }
+    protected override void Initialize(SonarAnalysisContext context) =>
+        // Output is rendered to Solution/Tests/RoslynData project
+        context.RegisterNodeAction(ProcessBaseMethod, SyntaxKind.MethodDeclaration, SyntaxKind.ConstructorDeclaration);
 
-        internal override string LanguageVersion(Compilation c) =>
-            c.GetLanguageVersion().ToString();
+    internal override string LanguageVersion(Compilation c) =>
+        c.GetLanguageVersion().ToString();
 
-        internal override string MethodName(SyntaxNodeAnalysisContext c) =>
-            (c.Node as MethodDeclarationSyntax)?.Identifier.ValueText ?? c.Node.FirstAncestorOrSelf<TypeDeclarationSyntax>().Identifier.ValueText + ".ctor";
-    }
+    internal override string MethodName(SyntaxNodeAnalysisContext c) =>
+        (c.Node as MethodDeclarationSyntax)?.Identifier.ValueText ?? c.Node.FirstAncestorOrSelf<TypeDeclarationSyntax>().Identifier.ValueText + ".ctor";
 }

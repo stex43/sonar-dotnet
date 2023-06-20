@@ -18,29 +18,18 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.VisualBasic;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
-using SonarAnalyzer.Helpers;
+namespace SonarAnalyzer.Rules.VisualBasic;
 
-namespace SonarAnalyzer.Rules.VisualBasic
+[DiagnosticAnalyzer(LanguageNames.VisualBasic)]
+public sealed class RoslynCfgComparer : RoslynCfgComparerBase
 {
-    [DiagnosticAnalyzer(LanguageNames.VisualBasic)]
-    public sealed class RoslynCfgComparer : RoslynCfgComparerBase
-    {
-        protected override void Initialize(SonarAnalysisContext context)
-        {
-            // Output is rendered to Solution/Tests/RoslynData project
-            context.RegisterSyntaxNodeActionInNonGenerated(
-                ProcessBaseMethod,
-                SyntaxKind.FunctionBlock, SyntaxKind.SubBlock);
-        }
+    protected override void Initialize(SonarAnalysisContext context) =>
+        // Output is rendered to Solution/Tests/RoslynData project
+        context.RegisterNodeAction(ProcessBaseMethod, SyntaxKind.FunctionBlock, SyntaxKind.SubBlock);
 
-        internal override string LanguageVersion(Compilation c) =>
-            ((VisualBasicCompilation)c).LanguageVersion.ToString();
+    internal override string LanguageVersion(Compilation c) =>
+        ((VisualBasicCompilation)c).LanguageVersion.ToString();
 
-        internal override string MethodName(SyntaxNodeAnalysisContext c) =>
-            (c.Node as MethodBlockSyntax)?.SubOrFunctionStatement.Identifier.ValueText ?? c.Node.FirstAncestorOrSelf<ClassBlockSyntax>().BlockStatement.Identifier.ValueText + ".ctor";
-    }
+    internal override string MethodName(SyntaxNodeAnalysisContext c) =>
+        (c.Node as MethodBlockSyntax)?.SubOrFunctionStatement.Identifier.ValueText ?? c.Node.FirstAncestorOrSelf<ClassBlockSyntax>().BlockStatement.Identifier.ValueText + ".ctor";
 }
