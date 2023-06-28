@@ -73,7 +73,7 @@ public class SymbolicExecutionRunner : SymbolicExecutionRunnerBase
             SyntaxKind.CompilationUnit);
 
         context.RegisterNodeAction(
-            c => Analyze<BaseMethodDeclarationSyntax>(context, c, x => (SyntaxNode)x.Body ?? x.ExpressionBody()),
+            c => Analyze(context, c, c.Node),
             SyntaxKind.ConstructorDeclaration,
             SyntaxKind.DestructorDeclaration,
             SyntaxKind.ConversionOperatorDeclaration,
@@ -81,23 +81,19 @@ public class SymbolicExecutionRunner : SymbolicExecutionRunnerBase
             SyntaxKind.MethodDeclaration);
 
         context.RegisterNodeAction(
-            c => Analyze<SyntaxNode>(context, c, x =>
-            {
-                var localFunction = (LocalFunctionStatementSyntaxWrapper)x;
-                return (SyntaxNode)localFunction.Body ?? localFunction.ExpressionBody;
-            }),
+            c => Analyze(context, c, c.Node),
             SyntaxKindEx.LocalFunctionStatement);
 
         context.RegisterNodeAction(
-            c => Analyze<PropertyDeclarationSyntax>(context, c, x => x.ExpressionBody?.Expression),
+            c => Analyze<PropertyDeclarationSyntax>(context, c, x => x.ExpressionBody),
             SyntaxKind.PropertyDeclaration);
 
         context.RegisterNodeAction(
-            c => Analyze<IndexerDeclarationSyntax>(context, c, x => x.ExpressionBody?.Expression),
+            c => Analyze<IndexerDeclarationSyntax>(context, c, x => x.ExpressionBody),
             SyntaxKind.IndexerDeclaration);
 
         context.RegisterNodeAction(
-            c => Analyze<AccessorDeclarationSyntax>(context, c, x => (SyntaxNode)x.Body ?? x.ExpressionBody()),
+            c => Analyze(context, c, c.Node),
             SyntaxKind.GetAccessorDeclaration,
             SyntaxKind.SetAccessorDeclaration,
             SyntaxKindEx.InitAccessorDeclaration,
@@ -110,7 +106,7 @@ public class SymbolicExecutionRunner : SymbolicExecutionRunnerBase
                 var declaration = (AnonymousFunctionExpressionSyntax)c.Node;
                 if (c.SemanticModel.GetSymbolInfo(declaration).Symbol is { } symbol && !c.IsInExpressionTree())
                 {
-                    Analyze(context, c, declaration.Body, symbol);
+                    Analyze(context, c, declaration, symbol);
                 }
             },
             SyntaxKind.AnonymousMethodExpression,
