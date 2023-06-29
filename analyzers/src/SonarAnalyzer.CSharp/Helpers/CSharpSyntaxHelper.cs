@@ -271,7 +271,7 @@ namespace SonarAnalyzer.Helpers
                 TypeParameterSyntax { Identifier: var identifier } => identifier,
                 UsingDirectiveSyntax { Alias.Name: { } name } => GetIdentifier(name),
                 VariableDeclaratorSyntax { Identifier: var identifier } => identifier,
-                SimpleBaseTypeSyntax { Type: { } type} => GetIdentifier(type),
+                SimpleBaseTypeSyntax { Type: { } type } => GetIdentifier(type),
                 { } refType when RefTypeSyntaxWrapper.IsInstance(refType) => GetIdentifier(((RefTypeSyntaxWrapper)refType).Type),
                 _ => null
             };
